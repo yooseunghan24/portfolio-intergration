@@ -1,6 +1,5 @@
 ﻿//tab버튼
 function showmenu(e, id, neighbor) {
-  console.log(e, id, neighbor);
   var show = document.querySelector('.'+id);
   var notVisi = document.querySelector('.'+neighbor);
   notVisi.style.display = 'none';

@@ -8,7 +8,7 @@ $('nav > ul').mouseenter(function(){
 const dontA = document.querySelectorAll('[href="#"]');
 for(let i of dontA) {
   i.addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
   })
 }
 const navLi = document.querySelectorAll('nav > ul > li > a');

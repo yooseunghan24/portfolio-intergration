@@ -15,7 +15,8 @@ function slideFade() {
   slide[idx].style.display = 'block';
   dot[idx].classList.add('active');
 }
-var slideShow = setInterval(slideFade, 3000)
+
+let slideShow = setInterval(slideFade, 3000)
 prev.addEventListener('click', function() {
   clearInterval(slideShow);
   idx -= 1;
@@ -28,6 +29,7 @@ prev.addEventListener('click', function() {
   dot[idx].classList.add('active');
   slideShow = setInterval(slideFade, 3000);
 })
+
 next.addEventListener('click', function() {
   clearInterval(slideShow);
   idx += 1;
@@ -40,6 +42,7 @@ next.addEventListener('click', function() {
   dot[idx].classList.add('active');
   slideShow = setInterval(slideFade, 3000);
 })
+
 for(let i=0; i<dot.length; i++) {
   dot[i].addEventListener('click', function() {
     clearInterval(slideShow);
@@ -51,5 +54,12 @@ for(let i=0; i<dot.length; i++) {
     dot[i].classList.add('active');
     slideShow = setInterval(slideFade, 3000);
     idx = i;
+  })
+}
+
+const news = document.querySelectorAll('.news_popup');
+for(let i=0; i<news.length;i++) {
+  news[i].addEventListener('click', () => {
+    window.open('category/news' + [i+1] + '.html','','width=1200, height=800');
   })
 }
