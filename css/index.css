@@ -6,9 +6,42 @@
 }
 html,
 body {
-  background: url(../img/realmap.jpg) no-repeat;
+  /*background: url(../img/realmap.jpg) no-repeat;*/
   overflow: hidden;
   cursor: url(../img/cursor.png), auto;
+  user-select: none;
+  height: 100%;
+}
+.desktop {
+  position: absolute;
+  top: -55px;
+  left: 0;
+  background: url(../img/realmap.jpg) no-repeat;
+  width: 1920px;
+  height: 1080px;
+}
+.alert {
+  padding: 10px;
+  background: #eee;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  font-size: 12px;
+  z-index: 9999;
+}
+.alert p {
+  font-family: "Malgun Gothic", sans-serif;
+}
+.alert a {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  right: 5%;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 .yoo {
   position: absolute;
@@ -111,7 +144,7 @@ body {
   background: url(../img/close.png);
   width: 32px;
   height: 32px;
-  transition:.3s;
+  transition: 0.3s;
 }
 .close:hover {
   background: url(../img/close_hover.png);
@@ -394,7 +427,7 @@ body {
   position: absolute;
   width: 40px;
   height: 23px;
-  transition: .3s;
+  transition: 0.3s;
 }
 .works_left_btn {
   left: 0;
@@ -405,8 +438,9 @@ body {
   right: -10px;
   background: url(../img/arrow.png) no-repeat;
 }
-.works_left_btn:hover, .works_right_btn:hover {
-  background: url(../img/arrow_hover.png)
+.works_left_btn:hover,
+.works_right_btn:hover {
+  background: url(../img/arrow_hover.png);
 }
 .works_page {
   position: absolute;
@@ -463,9 +497,6 @@ body {
   position: relative;
   top: 20px;
 }
-.works_text > a:hover {
-  box-shadow: inset 0 0 10px 1px #000;
-}
 .siteview,
 .codeview {
   display: inline-block;
@@ -482,7 +513,10 @@ body {
   position: absolute;
   bottom: 0;
   z-index: 7;
-  transition: .2s;
+  transition: 0.5s;
+}
+.works_text > a:hover {
+  box-shadow: 0 0 10px 1px #000;
 }
 .siteview {
   left: 0;
@@ -515,13 +549,13 @@ body {
 .contact_contents .real_contents_box > p {
   position: absolute;
   left: 50%;
-  top:100px;
+  top: 100px;
   transform: translateX(-50%);
 }
 .contact_contents .real_contents_box a {
   display: block;
   padding: 20px;
-  transition: .4s;
+  transition: 0.4s;
 }
 .contact_contents .real_contents_box a:hover {
   box-shadow: 0 0 3px 2px #000;
@@ -631,7 +665,7 @@ body {
   padding: 5px;
   border: 1px solid #000;
   border-radius: 10px;
-  transition: .3s;
+  transition: 0.3s;
 }
 .game_wrap > a:hover {
   background: #000;
@@ -688,6 +722,20 @@ body {
   left: 150px;
   animation: ship 120s linear infinite;
 }
+.ship:hover::after {
+  content: "저와 함께 항해할 분을 찾습니다.";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 170px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid;
+  padding: 5px;
+}
+.ship.balloon::after {
+  display: block;
+}
 .ship img {
   width: 100%;
 }
@@ -716,9 +764,31 @@ body {
   bottom: 5px;
   left: 5px;
 }
+/* 미니맵 */
+.minimap_wrap {
+  width: 180px;
+  height: 110px;
+  position: absolute;
+  bottom: 140px;
+  right: 80px;
+  background: url(../img/minimap.png);
+  box-shadow: 0 0 3px 2px #000;
+}
+.minibox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 90px;
+  background: #ffca6e;
+  cursor: grab;
+  opacity: 0.3;
+}
 /* 1024px 이상일 때만 스크롤바 변경 */
 @media (min-width: 1024px) {
-  * {cursor: url(../img/cursor.png), auto;}
+  * {
+    cursor: url(../img/cursor.png), auto;
+  }
   ::-webkit-scrollbar {
     width: 3px;
   }
@@ -1005,7 +1075,7 @@ body {
     text-align: center;
     font-size: 18px;
     color: #000;
-    word-break: keep-all;;
+    word-break: keep-all;
   }
   .m_footer p:nth-of-type(2) {
     font-size: 10px;
