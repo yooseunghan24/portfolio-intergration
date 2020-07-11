@@ -1,7 +1,7 @@
 /* 나이 */
-const age = document.querySelectorAll('.age');
+const age = document.querySelectorAll(".age");
 const date = new Date();
-for(let i=0; i<age.length; i++) {
+for (let i = 0; i < age.length; i++) {
   age[i].textContent = date.getFullYear() - 1996 + 1;
 }
 
@@ -33,7 +33,7 @@ let pl2 = Math.floor(Math.random() * 4);
 let pl3 = Math.floor(Math.random() * 4);
 
 function cloudMove() {
-  switch(pl) {
+  switch (pl) {
     case 0:
       cloudX += plus;
       cloudY += plus;
@@ -50,8 +50,8 @@ function cloudMove() {
       cloudX -= plus;
       cloudY += plus;
       break;
-    }
-  switch(pl2) {
+  }
+  switch (pl2) {
     case 0:
       cloudX2 += plus;
       cloudY2 += plus;
@@ -68,8 +68,8 @@ function cloudMove() {
       cloudX2 -= plus;
       cloudY2 += plus;
       break;
-    }
-  switch(pl3) {
+  }
+  switch (pl3) {
     case 0:
       cloudX3 += plus;
       cloudY3 += plus;
@@ -86,7 +86,7 @@ function cloudMove() {
       cloudX3 -= plus;
       cloudY3 += plus;
       break;
-    }
+  }
   let cloudOne = `translate(${cloudX}%, ${cloudY}%)`;
   let cloudTwo = `translate(${cloudX2}%, ${cloudY2}%)`;
   let cloudThree = `translate(${cloudX3}%, ${cloudY3}%)`;
@@ -212,10 +212,53 @@ window.addEventListener("wheel", function (e) {
   appearance();
 });
 
+/* 미니맵 움직이기 */
+const miniMap = document.querySelector(".minimap_wrap");
+const miniBox = document.querySelector(".minibox");
+const bigMap = document.querySelector(".desktop");
+let startX, startY, setTop, setLeft;
+function boxMove(e) {
+  this.style.left = setLeft + e.clientX - startX + "px";
+  this.style.top = setTop + e.clientY - startY + "px";
+  bigMap.style.transform = `translate(${-this.offsetLeft}px,${-this
+    .offsetTop}px)`;
+  if (this.offsetLeft <= 0 && this.offsetTop <= 0) {
+    this.style.left = 0;
+    this.style.top = 0;
+  }
+  if (this.offsetLeft <= 0) {
+    this.style.left = 0;
+  }
+  if (this.offsetTop <= 0) {
+    this.style.top = 0;
+  }
+  if (this.offsetLeft >= 0 && this.offsetTop >= 20) {
+    this.style.left = 0;
+    this.style.top = 20 + "px";
+  }
+  if (this.offsetLeft >= 0) {
+    this.style.left = 0;
+  }
+  if (this.offsetTop >= 20) {
+    this.style.top = 20 + "px";
+  }
+}
+miniBox.addEventListener("mousedown", function (e) {
+  setTop = this.offsetTop;
+  setLeft = this.offsetLeft;
+  startX = e.clientX;
+  startY = e.clientY;
+  this.addEventListener("mousemove", boxMove);
+  window.addEventListener("mouseup", function () {
+    miniBox.removeEventListener("mousemove", boxMove);
+    bigMap.style.transform = "translate(0,0)";
+  });
+});
+
 /* 모바일용 스크립트 */
 
 // 상단 메시지
-$(".alert span").click(function () {
+$(".alert a").click(function () {
   $(".alert").hide();
 });
 
