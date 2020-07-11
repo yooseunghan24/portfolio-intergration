@@ -6,11 +6,9 @@
 }
 html,
 body {
-  /*background: url(../img/realmap.jpg) no-repeat;*/
   overflow: hidden;
   cursor: url(../img/cursor.png), auto;
   user-select: none;
-  height: 100%;
 }
 .desktop {
   position: absolute;
