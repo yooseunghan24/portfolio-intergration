@@ -1,3 +1,10 @@
+const preventA = document.querySelectorAll('[href="#"]');
+for(let i of preventA) {
+  i.addEventListener('click', (e) => {
+    e.preventDefault();
+  })
+}
+
 /* 나이 */
 const age = document.querySelectorAll(".age");
 const date = new Date();
@@ -172,13 +179,13 @@ const worksRbtn = document.querySelector(".works_right_btn");
 const worksSlide = document.querySelector(".works_slide");
 const worksPage = document.querySelector(".works_page ul");
 let worksSlideSw = 0;
-worksLbtn.addEventListener("click", function () {
+worksLbtn.addEventListener("click", () => {
   worksSlideSw <= 0 ? (worksSlideSw = 0) : (worksSlideSw -= 1);
   worksSlide.style.marginLeft = `${-100 * worksSlideSw}%`;
   worksPage.style.marginLeft = `${-100 * worksSlideSw}%`;
 });
-worksRbtn.addEventListener("click", function () {
-  worksSlideSw >= 3 ? (worksSlideSw = 3) : (worksSlideSw += 1);
+worksRbtn.addEventListener("click", () => {
+  worksSlideSw >= 4 ? (worksSlideSw = 4) : (worksSlideSw += 1);
   worksSlide.style.marginLeft = `${-100 * worksSlideSw}%`;
   worksPage.style.marginLeft = `${-100 * worksSlideSw}%`;
 });
@@ -187,7 +194,7 @@ worksRbtn.addEventListener("click", function () {
 const introP = document.querySelector(".m_intro p");
 const skillWrap = document.querySelectorAll(".m_skill_contents_wrap");
 const worksWrap = document.querySelectorAll(".m_works_contents_wrap");
-let pTop = 30;
+
 function appearance() {
   for (let i = 0; i < skillWrap.length; i++) {
     if (scrollY > skillWrap[i].offsetTop - 800) {
@@ -200,15 +207,7 @@ function appearance() {
     }
   }
 }
-window.addEventListener("wheel", function (e) {
-  let scrollY = window.scrollY;
-  let deltaY = e.deltaY;
-  if (deltaY > 0) {
-    pTop === 60 ? (pTop = 60) : (pTop += 10);
-  } else {
-    pTop === 30 ? (pTop = 30) : (pTop -= 10);
-  }
-  introP.style.marginTop = `${pTop}px`;
+window.addEventListener("wheel", () => {
   appearance();
 });
 
@@ -258,12 +257,11 @@ miniBox.addEventListener("mousedown", function (e) {
 /* 모바일용 스크립트 */
 
 // 상단 메시지
-$(".alert a").click(function () {
+$(".alert a").click(() => {
   $(".alert").hide();
 });
 
 // 터치 이벤트
-window.addEventListener("touchmove", function () {
-  let scrollY = window.scrollY;
+window.addEventListener("touchmove", () => {
   appearance();
 });
