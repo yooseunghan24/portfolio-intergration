@@ -27,6 +27,12 @@ main {
   text-align: center;
   line-height: 80px;
 }
+.fairs_page a {
+  color: #999;
+}
+.fairs_page a.active {
+  color: #000;
+}
 .fairs_list > div {
   display: flex;
   height: 25%;
