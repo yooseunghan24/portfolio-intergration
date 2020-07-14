@@ -177,15 +177,32 @@ $(".minigame_modal_wrap .close").click(function () {
 const worksLbtn = document.querySelector(".works_left_btn");
 const worksRbtn = document.querySelector(".works_right_btn");
 const worksSlide = document.querySelector(".works_slide");
+const worksSlideList = document.querySelectorAll(".works_slide > div");
 const worksPage = document.querySelector(".works_page ul");
 let worksSlideSw = 0;
+worksLbtn.style.display = 'none';
 worksLbtn.addEventListener("click", () => {
-  worksSlideSw <= 0 ? (worksSlideSw = 0) : (worksSlideSw -= 1);
+  worksRbtn.style.display = 'block';
+  if(worksSlideSw >= 2) {
+    worksSlideSw -= 1;
+    worksLbtn.style.display = 'block';
+  } else {
+    worksSlideSw = 0;
+    worksLbtn.style.display = 'none';
+  }
   worksSlide.style.marginLeft = `${-100 * worksSlideSw}%`;
   worksPage.style.marginLeft = `${-100 * worksSlideSw}%`;
 });
 worksRbtn.addEventListener("click", () => {
-  worksSlideSw >= 4 ? (worksSlideSw = 4) : (worksSlideSw += 1);
+  worksLbtn.style.display = 'block';
+  // 확장성을 위해 슬라이드 개수를 기준으로 조건 설정.
+  if(worksSlideSw < worksSlideList.length - 2) {
+    worksSlideSw += 1;
+    worksRbtn.style.display = 'block';
+  } else {
+    worksSlideSw = worksSlideList.length - 1;
+    worksRbtn.style.display = 'none';
+  }
   worksSlide.style.marginLeft = `${-100 * worksSlideSw}%`;
   worksPage.style.marginLeft = `${-100 * worksSlideSw}%`;
 });
