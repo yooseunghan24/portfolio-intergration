@@ -433,7 +433,8 @@ section .container .slideimg4 .text span {
 /* 패럴랙스 */
 .parallex {
   height: 800px;
-  background: url(images/parallex.jpg) no-repeat 0 0/cover fixed;
+  background: url(images/parallex.jpg) no-repeat 0 0/cover;
+  background-attachment: fixed;
   width: 100%;
   position: relative;
 }
