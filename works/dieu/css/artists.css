@@ -189,7 +189,6 @@ main {
   .rembrandt::after,
   .henry::after,
   .charles::after {
-    background-size: 155%;
     background-position: 50% 0;
   }
   .info_wrap {
