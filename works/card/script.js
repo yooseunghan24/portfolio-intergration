@@ -78,19 +78,20 @@ start.addEventListener('click', function() {
 		i.classList.add('turn');
 		i.style.pointerEvents = 'none';
 	}
-	setTimeout(function() {
+	setTimeout(() => {
 		for(let i of cardWrap) {
 			i.classList.remove('turn');
 			i.style.pointerEvents = 'auto';
 		}
 	}, 5000);
 	let i=4;
-	let count = setInterval(function() {
+	let count = setTimeout(function tick() {
 		cnt.textContent = i;
 		i -= 1;
+		count = setTimeout(tick, 1000);
 		if(i === -1) {
 			cnt.textContent = '시작!';
-			clearInterval(count);
+			clearTimeout(count);
 		}
 	}, 1000)
 })
