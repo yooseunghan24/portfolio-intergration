@@ -641,35 +641,20 @@ body {
   }
 }
 .minigame_contents {
-  padding: 175px 200px;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
-.game_wrap {
-  text-align: center;
-  width: 40%;
+.minigame_contents p {
+  font-size: 30px;
 }
-.game_wrap > div {
-  height: 380px;
+.minigame_contents p a {
+  font-size: 40px;
 }
-.game_wrap > div img {
-  max-width: 100%;
-  display: block;
-}
-.game_wrap > p {
-  padding: 10px 0;
-}
-.game_wrap > a {
-  display: inline-block;
-  padding: 5px;
-  border: 1px solid #000;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-.game_wrap > a:hover {
-  background: #000;
-  color: #fff;
+.minigame_contents p a:hover {
+  text-decoration: underline;
 }
 /* cloud */
 .cloud {
