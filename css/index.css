@@ -380,8 +380,11 @@ body {
   justify-content: center;
   padding: 20px 0;
 }
-.skill_logo_wrap:nth-of-type(5) {
-  padding-right: 50px;
+.skill_logo_wrap:last-child img {
+  width: 100px;
+}
+.skill_logo_wrap {
+  padding-right: 60px;
 }
 .skill_logo {
   width: 20%;
@@ -959,6 +962,9 @@ body {
   .m_skill_contents_wrap.upup {
     opacity: 1;
     transform: translateY(0);
+  }
+  .m_skill_contents_wrap:last-child img {
+    max-width: 44%;
   }
   .m_skill_contents_icon {
     width: 30%;

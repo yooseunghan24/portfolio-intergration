@@ -1,5 +1,5 @@
 const preventA = document.querySelectorAll('[href="#"]');
-for(let i of preventA) {
+for (let i of preventA) {
   i.addEventListener('click', (e) => {
     e.preventDefault();
   })
@@ -183,7 +183,7 @@ let worksSlideSw = 0;
 worksLbtn.style.display = 'none';
 worksLbtn.addEventListener("click", () => {
   worksRbtn.style.display = 'block';
-  if(worksSlideSw >= 2) {
+  if (worksSlideSw >= 2) {
     worksSlideSw -= 1;
     worksLbtn.style.display = 'block';
   } else {
@@ -196,7 +196,7 @@ worksLbtn.addEventListener("click", () => {
 worksRbtn.addEventListener("click", () => {
   worksLbtn.style.display = 'block';
   // 확장성을 위해 슬라이드 개수를 기준으로 조건 설정.
-  if(worksSlideSw < worksSlideList.length - 2) {
+  if (worksSlideSw < worksSlideList.length - 2) {
     worksSlideSw += 1;
     worksRbtn.style.display = 'block';
   } else {
